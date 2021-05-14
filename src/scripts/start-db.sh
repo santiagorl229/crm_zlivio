@@ -2,7 +2,7 @@
 set -e
 
 SERVER="crm_database_server";
-PW="mysecretpassword";
+PW="Zlivio*1*C_2_R.3.M";
 DB="crm_zlivio";
 
 echo "echo stop & remove old docker [$SERVER] and starting new fresh instance of [$SERVER]"
