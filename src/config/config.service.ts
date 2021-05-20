@@ -6,6 +6,7 @@ class ConfigService {
     constructor() {}
     
     public getTypeOrmConfig(): TypeOrmModuleOptions {
+        console.log(__dirname + '/../model/*.entities{.ts,.js}')
         return {
             type: 'postgres',
             keepConnectionAlive: true,
@@ -14,7 +15,14 @@ class ConfigService {
             database: POSTGRES_DATABASE,
             username: POSTGRES_USER,
             password: POSTGRES_PASSWORD,
-            entities: [__dirname + '/../**/*.entities{.ts,.js}']
+            synchronize: true,
+            entities: ['**/*.entity{.ts,.js}'],
+            migrationsTableName: 'migration',
+            migrations: ['src/migration/*.ts'],
+            cli: {
+              migrationsDir: 'src/migration',
+            },
+
         };
     }
 }
